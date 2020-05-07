@@ -1,7 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginPage from '../LoginPage'
 import WebFont from 'webfontloader'
+import { Provider } from 'react-redux';
+import store from '../../store/index';
+import Routes from "../../routes/index";
 
 WebFont.load({
   google: {
@@ -11,9 +13,9 @@ WebFont.load({
 
 function App() {
   return (
-    <div>
-      <LoginPage />
-    </div>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   );
 }
 
