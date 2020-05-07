@@ -12,3 +12,13 @@ export const signUp = (newUser) => async (dispatch) => {
     window.alert(err)
   }
 }
+
+export const login = (user) => async (dispatch) => {
+  try{
+    const response = await axios.post(`${baseURL}/user/login`, user)
+    localStorage.setItem("token", response.data.token)
+    dispatch(push("/chat"))
+  }catch(err){
+    window.alert(err)
+  }
+}
