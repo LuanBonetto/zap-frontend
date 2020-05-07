@@ -13,18 +13,34 @@ import {
   input,
   buttonEnter,
 } from "./style";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { sendRedefinePassword } from "../../actions/user"
 
 function LoginPage(props) {
+  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+
+  function onSubmitRedefinePassword(event){
+    event.preventDefault()
+    dispatch(sendRedefinePassword(email))
+  }
 
   return (
     <Container style={container}>
       <img alt="logo" style={logo} src={zapLogo} />
       <h1 style={title}>Esqueci Minha Senha</h1>
-      <Form style={form}>
+      <Form style={form} onSubmit={onSubmitRedefinePassword}>
         <Form.Group style={formGroup}>
           <Form.Label style={label}>Digite o email da sua conta</Form.Label>
-          <Form.Control type="email" placeholder="Email" style={input} />
-          <Button style={buttonEnter} variant="success">
+          <Form.Control
+            type="email"
+            placeholder="Email"
+            style={input}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Button style={buttonEnter} variant="success" type="submit">
             Enviar
           </Button>
         </Form.Group>

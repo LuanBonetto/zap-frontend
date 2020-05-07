@@ -22,3 +22,15 @@ export const login = (user) => async (dispatch) => {
     window.alert(err)
   }
 }
+
+export const sendRedefinePassword = (email) => async (dispatch) => {
+  try{
+    const userEmail = {
+      email: email
+    }
+    await axios.put(`${baseURL}/user/redefinePassword`, userEmail)
+    window.alert("Verifique seu e-mail para redefinir sua senha")
+  }catch(err){
+    window.alert(err)
+  }
+}
