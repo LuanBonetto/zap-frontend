@@ -12,6 +12,8 @@ export const headerDiv = {
   width: "100%",
   justifyContent: "space-between",
   padding: "0 25px 0 0",
+  borderRight: "1px solid black",
+  borderRadius: "2px"
 };
 
 export const iconAddFriend = {
@@ -55,6 +57,7 @@ function HeaderProfile() {
     <>
       <div style={headerDiv}>
         <Image
+          hover
           style={photo}
           src="https://lh3.googleusercontent.com/proxy/Iu81aOGVhxRp5A1K4zKjwIxEDPo2qItE1s8veh2gTeSFNNRpgNDATBUJ8NAD-ygbtbnpXlV033GyaIW3GXbctE0yhh98Z1J9M1PFJBn6sx_J_KXp"
           roundedCircle
